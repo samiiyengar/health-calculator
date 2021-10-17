@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>insta485</title>
+        <link rel="stylesheet" href="/static/css/style.css">
+    </head>
+
+    <body>
+        <!-- Plain old HTML and jinja2 nav bar goes here -->
+        <header>
+            <a href="/">
+                <!-- fixme
+                <img id="homelogo" src="/static/images/instagramlogo.png" alt="LOGO">
+                -->
+                
+                <img id="homelogo" src="/static/images/instagramlogo.png" alt="LOGO">
+                
+            </a>
+
+            <h1>INSTA485</h1>
+
+            <div>
+                <a href="/explore/">
+                  explore
+                </a>
+                |
+                <a href="/users/{{ session['logged_user'] }}/">
+                  {{ session['logged_user'] }}
+                </a>
+            </div>
+        </header>
+
+        <br /><br />
+      
+        <div id="reactEntry">
+          Loading ...
+        </div>
+        <!-- Load JavaScript -->
+        <script type="text/javascript" src="{{ url_for('static', filename='js/bundle.js') }}"></script>
+    </body>
+
+</html>

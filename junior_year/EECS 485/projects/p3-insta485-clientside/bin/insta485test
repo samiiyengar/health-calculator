@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+# insta485test
+#
+# Logan Roach <logroa@umich.edu>
+
+# stop on errors, print commands
+set -Eeuo pipefail
+set -x
+
+# pycodestyle, pydocstyle, pylint
+pycodestyle insta485
+pydocstyle insta485
+pylint --disable=cylic-import --unsafe-load-any-extension=y --disable=assigning-non-slot insta485
+
+# run all unit tests
+pytest -v tests

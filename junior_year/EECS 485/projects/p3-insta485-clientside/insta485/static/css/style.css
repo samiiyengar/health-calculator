@@ -1,0 +1,29 @@
+body {
+    width: 100%;
+    margin: 0;
+    background-color: white;
+    color: black;
+}
+
+#homelogo {
+    width: 100px;
+    height: auto;
+}
+
+header {
+    display: flex;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.profpic {
+    width: 70px;
+    height: auto;
+}
+
+.followerlist {
+    display: flex;
+}

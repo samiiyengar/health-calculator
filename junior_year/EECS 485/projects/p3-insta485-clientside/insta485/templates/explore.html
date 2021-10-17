@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>insta485</title>
+        <link rel="stylesheet" href="../../css/style.css">
+    </head>
+    <body>
+        <header>
+            <a href="/">
+                <img id="homelogo" src="/images/instagramlogo.png" alt="LOGO">
+            </a>
+
+            <h1>INSTA485</h1>
+            <br>
+            <h2>Discover People</h2>
+            
+            <div>
+                <a href="/explore/">
+                    explore
+                </a>
+                |
+                <a href="/users/{{ logname }}/">
+                    {{ logname }}
+                </a>
+            </div>
+        </header>
+
+        <br /><br />
+
+        <div>
+            {% for nf in not_following %}
+                <div class="post">
+                    <div class="parent2">
+                        <div class="div01" style="height:10vh; ">
+                            <div style="display:inline-block; height:6vh; width: 6vh;
+                            margin:2vh 2vw;background: url(/static/uploads/{{nf.user_img_url}});
+                            background-size: 100% 100%;
+                            ">
+                            </div>
+
+                        </div>
+                        <div class="div02" style="height:10vh; ">
+                                <div style="display:inline-block; height:4vh; width: 6vh;
+                                margin:3vh 0;">
+                                <strong><a href="/users/{{nf.username}}/">{{nf.username}} </a></strong>
+                                <img src="/uploads/{{ nf.user_img_url }}" alt="pic" />
+                                </div>
+                        </div>
+                        <div class="div03" ></div>
+                        <div class="div04" style="height:10vh; " ><div style="display:inline-block; height:4vh; font-size: 120%; color: grey;
+                            margin:3vh 0;">
+                            <form style="display: inline-block;" action="" method="post" enctype="multipart/form-data">
+                                <input type="hidden" name="target" value="{{nf.username}}"/>
+                                <input type="submit" name="follow" value="follow"/>
+                            </form>
+                            </div></div>
+                    </div>
+                </div>
+                <!--
+                <div class="followerlist">
+                    <img class="profilepostpic" src="{{ nf.user_img_url }}" alt="Explore Page Profile Pic" />
+                    <a href="/u/{{ nf.username }}/">{{ nf.username }}</a>
+                    <form style="display: inline-block;" action="" method="post" enctype="multipart/form-data"><input type="hidden" name="target" value="{{ nf.username }}"/><input type="submit" name="follow" value="follow"/></form>
+                </div>
+                -->
+            {% endfor %}
+        </div>
+
+    </body>
+</html>

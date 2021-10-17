@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>insta485</title>
+        <link rel="stylesheet" href="/static/css/style.css">
+    </head>
+    <body>
+        <header>
+            <a href="/">
+                <img id="homelogo" src="/static/images/instagramlogo.png" alt="LOGO">
+            </a>
+
+            <h1>INSTA485</h1>
+
+            <div>
+                <a href="/explore/">
+                  explore
+                </a>
+                |
+                <a href="/users/{{ session['current_user'] }}/">
+                  {{ session['current_user'] }}
+                </a>
+            </div>
+        </header>
+
+        <br /><br />
+
+        <div>
+            <img src="/../p2-insta485-serverside/var/uploads/{{ profilepic }}" alt="Profile Pic" /> {{ session['current_user']}}
+
+            <br />
+
+            <form action="{{ url_for('edit') }}" method="post" enctype="multipart/form-data">
+                Profile Pic: <input type="file" name="file" accept="image/*"/> <br />
+                Fullname: <input type="text" name="fullname" value="{{ fullname }}" required/> <br />
+                Email: <input type="text" name="email" value="{{ email }}" required/> <br />
+                <input type="submit" name="update" value="submit"/>
+                <input type="hidden" name="operation" value="edit_account"/>
+            </form>
+
+            <br />
+
+            <div>
+                <a href="/accounts/password/"><b>Change Password</b></a> <br /> <br />
+                <a href="/accounts/delete/"><b>Delete Account</b></a>
+            </div>
+        </div>
+
+    </body>
+</html>
